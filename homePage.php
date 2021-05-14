@@ -20,7 +20,7 @@
 
         <div class="signup">
             <h2> SIGNUP </h2>
-            <form action="" class="innerform">
+            <form action="" class="innerform innerform2">
                 <label for="name_signup"> YOUR NAME</label>
                 <input type="text" name="" id="name_signup">
 
@@ -34,8 +34,7 @@
                 <input type="password" name="" id="confirm_pass">
 
                 <button onclick="createAcc()">CREATE ACCOUNT</button>
-                
-
+            
 
             </form>
 
@@ -44,7 +43,7 @@
 
         <div class="login">
             <h2> LOGIN </h2>
-            <form action="" class="innerform">
+            <form action="" class="innerform innerform1">
                 <label for="">USERNAME</label>
                 <input type="text" name="" id="user_login">
 
