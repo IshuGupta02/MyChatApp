@@ -9,35 +9,51 @@ var remember= document.getElementById("remember")
 var login= document.querySelector(".innerform2")
 var signup= document.querySelector(".innerform1")
 
-function login(){
+var signupbtn=document.getElementById("createAccount")
+var loginbtn=document.getElementById("loginUser")
 
 
+loginbtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    console.log("hi");
 
-}
 
-function createAcc(){
+});
 
+signupbtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    console.log("hi");
 
+    let data={
+        "name":name_signup.value,
+        "user": user_signup.value,
+        "password":pass_signup.value
+    }
+    
+    // let data=`name=${name_signup}&user=${user_signup}&password=${pass_signup}`;
+    console.log(data);
+    console.log(JSON.stringify(data));
+    
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
-
-    let formData = new FormData(signup);
-    xhr.send(formData);
-
+    
     xhr.onreadystatechange=function(){
         if(this.readyState==4&&this.status==200){
-            let response = JSON.parse(this.response);
-            console.log(response);
+            // let response = JSON.parse(this.response);
+            // console.log(response);
+            console.log("successfull");
 
         }
         else if(this.readyState == 4 && this.status != 200){
             console.log("unsuccessfull");
         }
     }
+    xhr.open("POST", "./signup.php", true);
+    xhr.send(JSON.stringify(data));
 
    
 
-}
+
+});
 
 
 
