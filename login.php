@@ -26,6 +26,46 @@
         </form>
         <!-- <button id="loginUser">LOGIN</button> -->
 
+
+        <?php
+        require_once 'connect.php';
+
+        $username_name="username";
+        $password_name="password";
+
+
+
+        if(!isset($_COOKIE[$username_name])) {
+            echo"not set!";
+            
+        } else {
+            // echo "Cookie '" . $cookie_name . "' is set!<br>";
+            // echo "Value is: " . $_COOKIE[$cookie_name];
+
+            // echo "set";
+
+
+            $username=$_COOKIE[$username_name];
+            $pass=$_COOKIE[$password_name];
+
+            // echo $username;
+            // echo $pass;
+
+            echo "<script> document.getElementById(\"user_login\").value=\"".$username."\";</script>";
+            // echo "hello";
+
+            echo "<script> document.getElementById(\"pass_login\").value=\"".$pass."\";</script>";
+
+            // echo "hello";
+
+            echo "<script>document.getElementById(\"loginUser\").click();</script>";
+
+            
+        }
+
+        
+        ?>
+
     </div>
     
 </body>
