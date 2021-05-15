@@ -1,45 +1,56 @@
 <?php
 
-$servername = "localhost";
-$username = "myChat";
-$password = "myChatPass1@";
-// $password="ishu02@A";
-$db="myChat";
+require_once 'connect.php';
+
+// $servername = "localhost";
+// $username = "myChat";
+// $password = "myChatPass1@";
+// // $password="ishu02@A";
+// $db="myChat";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+// $conn = new mysqli($servername, $username, $password, $db);
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully\n";
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
+// echo "Connected successfully\n";
 
 
-$sql="SELECT Name FROM users";
+// $sql="SELECT Name FROM users";
 
-echo $sql."\n";
-$result = $conn->query($sql);
+// echo $sql."\n";
+// $result = $conn->query($sql);
 
-// echo $result;
+// // echo $result;
+
+// if ($result->num_rows > 0) {
+//     // output data of each row
+//     while($row = $result->fetch_assoc()) {
+//       echo "Name: " . $row["Name"]."\n";
+//     }
+// } else {
+//     echo "0 results\n";
+// }
+
+// $name="hello";
+
+// $sql="INSERT INTO users(Name) values("."\"".$name."\"".")";
+// print_r($sql);
+// $result = $conn->query($sql);
+// print_r($result);
+
+
+$sql="SELECT * from users where Name=\""."Ishu"."\"";
+echo $sql;
+$result=$conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      echo "Name: " . $row["Name"]."\n";
-    }
+    echo "<script>location.href='profile.php'</script>";
 } else {
-    echo "0 results\n";
+    echo "<script>location.href='login.php'</script>";
 }
-
-$name="hello";
-
-$sql="INSERT INTO users(Name) values("."\"".$name."\"".")";
-print_r($sql);
-$result = $conn->query($sql);
-print_r($result);
-
-
   
 
 ?>
