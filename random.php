@@ -28,9 +28,17 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       echo "Name: " . $row["Name"]."\n";
     }
-  } else {
+} else {
     echo "0 results\n";
-  }
+}
+
+$name="hello";
+
+$sql="INSERT INTO users(Name) values("."\"".$name."\"".")";
+print_r($sql);
+$result = $conn->query($sql);
+print_r($result);
+
 
   
 
