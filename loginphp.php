@@ -2,11 +2,14 @@
 
 require_once 'connect.php';
 
-$username=$_POST['user'];
-$pass=$_POST['pass'];
+
 // echo $name."  ".$pass." ";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+    $username=$_POST['user'];
+    $pass=$_POST['pass'];
+    $rem=$_POST['checkbox_rem'];
    
     $sql="SELECT * from users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
     // echo $sql;
@@ -21,6 +24,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $cookie_name2 = "password";
         $cookie_value2 = $pass;
         setcookie($cookie_name2, $cookie_value2);
+
+        $cookie_name3 = "remember";
+
+        if(!empty($rem)){       
+            $cookie_value3 = "1";
+            setcookie($cookie_name3, $cookie_value3);
+
+        }
+        else{
+            $cookie_value3 = "0";
+            setcookie($cookie_name3, $cookie_value3);
+
+        }
 
         echo "<script>location.href='chatroom.php'</script>";
 

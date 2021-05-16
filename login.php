@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
 
@@ -17,7 +18,7 @@
             <label for="pass_login">PASSWORD</label>
             <input type="password" name="pass" id="pass_login">
 
-            <input type="checkbox" name="" id="remember">
+            <input type="checkbox" name="checkbox_rem" id="remember" value="1">
             <label for="remember">Remember Me</label>
 
             <!-- <button onclick="login()" id="loginUser">LOGIN</button> -->
@@ -32,33 +33,28 @@
 
         $username_name="username";
         $password_name="password";
+        $remember_name="remember";
 
 
 
         if(!isset($_COOKIE[$username_name])) {
-            echo"not set!";
+          
             
         } else {
-            // echo "Cookie '" . $cookie_name . "' is set!<br>";
-            // echo "Value is: " . $_COOKIE[$cookie_name];
-
-            // echo "set";
-
 
             $username=$_COOKIE[$username_name];
             $pass=$_COOKIE[$password_name];
+            $rem=$_COOKIE[$remember_name];
 
-            // echo $username;
-            // echo $pass;
+            if($rem=="1"){
+                echo "<script> document.getElementById(\"user_login\").value=\"".$username."\";</script>";
+            
 
-            echo "<script> document.getElementById(\"user_login\").value=\"".$username."\";</script>";
-            // echo "hello";
+                echo "<script> document.getElementById(\"pass_login\").value=\"".$pass."\";</script>";
 
-            echo "<script> document.getElementById(\"pass_login\").value=\"".$pass."\";</script>";
+            }
 
-            // echo "hello";
-
-            echo "<script>document.getElementById(\"loginUser\").click();</script>";
+            // echo "<script>document.getElementById(\"loginUser\").click();</script>";
 
             
         }
@@ -69,4 +65,6 @@
     </div>
     
 </body>
+
+
 </html>

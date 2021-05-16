@@ -5,8 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+
 </head>
 <body>
+
+    <form action="logout.php" method="post">
+        <button id="logout">LOGOUT</button>
+    
+    </form>
+
+    <form action="profile.php" method="post">
+        <button id="profile">GO TO PROFILE PAGE!</button>
+    
+    </form>
+
+    <!-- <button id="profile">GO TO PROFILE PAGE!</button> -->
     
 </body>
+<!-- <script scr="removecookie.js"></script> -->
+
 </html>
