@@ -54,7 +54,7 @@
 
         ?>
 
-    <form action="" method="post">
+    <form action="updatedetails.php" method="post">
         <label for="name">NAME: </label>
         <input type="text" id="name" name="name" value="<?php echo $name;?>">
         
@@ -73,8 +73,18 @@
         <label for="about">ABOUT ME: </label>
         <input type="text" id="about" name="about" value="<?php echo $about;?>">     
 
-        
+        <button type="submit" method="post">UPDATE DETAILS</button>
     
+    
+    </form>
+
+    <form action="logout.php" method="post">
+        <button id="logout">LOGOUT</button>
+    
+    </form>
+
+    <form action="chatroom.php" method="post">
+        <button id="logout">GO TO CHATROOM</button>
     
     </form>
     
