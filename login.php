@@ -25,10 +25,31 @@
             <button id="loginUser">LOGIN</button>
 
         </form>
-        <!-- <button id="loginUser">LOGIN</button> -->
+        <!-- <button id="loginUser">LOGIN</button> -->        
+
+    </div>
+
+    <div class="signup">
+        <h2>CREATE AN ACCOUNT</h2>
+        <form class="innerform innerform2" onsubmit="return check();" action="signup.php" method="post" >
+
+            <label for="user_signup">USERNAME</label>
+            <input type="text" name="username" id="user_signup">
+
+            <label for="pass_login">PASSWORD</label>
+            <input type="password" name="password" id="pass_signup">
+
+            <label for="pass_login2">CONFIRM PASSWORD</label>
+            <input type="password" name="confirm_pass" id="pass_signup2">
+
+            <button id="signupuser" type="submit">LOGIN</button>
+
+        </form>
+
+    </div>
 
 
-        <?php
+    <?php
         require_once 'connect.php';
 
         $username_name="username";
@@ -62,9 +83,11 @@
         
         ?>
 
-    </div>
+
     
 </body>
 
+<script src="check_reg.js">
+</script>
 
 </html>
