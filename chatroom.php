@@ -14,12 +14,12 @@
 
     <div class="otheroptions">
         <form action="logout.php" method="post" class="redirect">
-            <button id="logout" class="goto">LOGOUT</button>
+            <button id="logout" type="submit" class="goto">LOGOUT</button>
         
         </form>
 
         <form action="profile.php" method="post" class="redirect">
-            <button id="profile" class="goto">GO TO PROFILE PAGE!</button>
+            <button id="profile" class="goto" type="submit">GO TO PROFILE PAGE!</button>
         
         </form>
 
