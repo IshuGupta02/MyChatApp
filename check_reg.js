@@ -1,24 +1,35 @@
 function check(){
-   
-    var str=document.getElementById("user_signup").value;
-
+    var str1=document.getElementById("user_signup").value;
+    console.log(str1);
+    str={
+        user:str1
+    }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
+
       if (this.readyState == 4 && this.status == 200) {
-        // document.getElementById("txtHint").innerHTML = this.responseText;
-        console.log(this.responseText);
         if(this.responseText=="true"){
+            
+            console.log("entered");
+            document.getElementById("signupform").setAttribute("onsubmit", "");
+            document.getElementById("signupuser").click();
             return true;
-            // console.log("entered");
+
         }
         else{
+
+            console.log("not entered");
             return false;
-            // console.log("not entered");
+                
         }
       }
+ 
     };
-    xmlhttp.open("GET", "checkduplicate.php?q=" + str, true);
-    xmlhttp.send();
+    xmlhttp.open("POST", "checkduplicate.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(JSON.stringify(str));
        
 }
+
+
 

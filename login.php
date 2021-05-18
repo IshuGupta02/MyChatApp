@@ -31,18 +31,18 @@
 
     <div class="signup">
         <h2>CREATE AN ACCOUNT</h2>
-        <form class="innerform innerform2" onsubmit="return check();" action="signup.php" method="post" >
+        <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();check();">
 
             <label for="user_signup">USERNAME</label>
             <input type="text" name="username" id="user_signup">
 
-            <label for="pass_login">PASSWORD</label>
+            <label for="pass_signup">PASSWORD</label>
             <input type="password" name="password" id="pass_signup">
 
             <label for="pass_login2">CONFIRM PASSWORD</label>
             <input type="password" name="confirm_pass" id="pass_signup2">
 
-            <button id="signupuser" type="submit">LOGIN</button>
+            <button id="signupuser" type="submit">CREATE AN ACCOUNT</button>
 
         </form>
 
@@ -79,8 +79,7 @@
 
             
         }
-
-        
+      
         ?>
 
 

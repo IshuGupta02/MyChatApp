@@ -1,22 +1,23 @@
 <?php
 
 require_once 'connect.php';
-$username = $_REQUEST["q"];
+
+$data = json_decode(file_get_contents("php://input"));
+
+$username = $data->user;
 
 $sql="SELECT * from users where Username=\"".$username."\"";
 
 $result=$conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "true";
+    echo "false";
 
 }
 else{
-    echo "false";
+    echo "true";
 
 
 }
-
-
 
 ?>
