@@ -1,8 +1,11 @@
 <?php
 
         require_once 'connect.php';
+        echo "entered";
 
         $conn = new mysqli($servername, $username, $password, $db);
+
+        
 
         //Check connection
         if ($conn->connect_error) {
@@ -25,6 +28,8 @@
         $rem=$_COOKIE[$remember_name];
 
         $sql="update users SET Name=\"".$new_name."\", Username=\"".$new_username."\"".", Gender=\"".$new_gender."\", Email=\"".$new_mail."\", Phone=\"".$new_phone."\", About=\"".$new_about."\" WHERE Username=\"".$username."\" and Password=\"".$pass."\"";
+
+        // echo $sql;
 
         $result=$conn->query($sql);
 

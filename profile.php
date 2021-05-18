@@ -7,9 +7,10 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="profilecss.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 </head>
 <body>
-        <?php
+    <?php
 
         require_once 'connect.php';
 
@@ -29,7 +30,7 @@
         $rem=$_COOKIE[$remember_name];
 
         $sql="SELECT * from users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
-        
+
         $result=$conn->query($sql);
 
 
@@ -54,43 +55,85 @@
         }
 
 
-        ?>
+    ?>
 
-    <form action="updatedetails.php" method="post">
-        <label for="name">NAME: </label>
-        <input type="text" id="name" name="name" value="<?php echo $name;?>">
+    <div class="otheroptions">
+        <form action="logout.php" method="post" class="redirect">
+            <button id="logout" class="goto">LOGOUT</button>
         
-        <label for="username">USERNAME: </label>
-        <input type="text" id="username" name="username" value="<?php echo $user;?>">
-        
-        <label for="gender">GENDER: </label>
-        <input type="text" id="gender" name="gender" value="<?php echo $gender;?>">
-        
-        <label for="mail">EMAIL: </label>
-        <input type="email" name="mail" id="mail" value="<?php echo $mail;?>">
-        
-        <label for="phone">PHONE NUMBER: </label>
-        <input type="text" id="phone" name="phone" value="<?php echo $phone;?>">
-        
-        <label for="about">ABOUT ME: </label>
-        <input type="text" id="about" name="about" value="<?php echo $about;?>">     
+        </form>
 
-        <button type="submit" method="post">UPDATE DETAILS</button>
-    
-    
-    </form>
+        <form action="chatroom.php" method="post" class="redirect">
+            <button id="chatroom" class="goto">GO TO CHATROOM</button>
+        
+        </form>
 
-    <form action="logout.php" method="post">
-        <button id="logout">LOGOUT</button>
-    
-    </form>
+    </div>
 
-    <form action="chatroom.php" method="post">
-        <button id="logout">GO TO CHATROOM</button>
+
+    <div class="profile">
+        <h2>YOUR PROFILE:</h2>
     
-    </form>
+        <form action="updatedetails.php" method="post"  class="updateform" id="updateform" onsubmit="event.preventDefault(); check();">
+        
+
+        
+
+            <div class="entry">
+                <label for="name" class="labelname">NAME: </label>
+                <input type="text" id="name" name="name" class="inputele" value="<?php echo $name;?>" onkeyup="checkname()">
+                <label for="" class="err" id="err_name"></label>
+            </div>
+            
+            
+            <div class="entry">
+                <label for="username" class="labelname">USERNAME: </label>
+                <input type="text" class="inputele" id="username" name="username" value="<?php echo $user;?>" onkeyup="checkusername()">
+                <label for="" class="err" id="err_username"></label>
+            </div>
+            
+
+            <div class="entry">
+                <label for="gender" class="labelname">GENDER: </label>
+                <input type="text" class="inputele" id="gender" name="gender" value="<?php echo $gender;?>" onkeyup="checkgender()">
+                <label for="" class="err" id="err_gender"></label>
+            </div>
+            
+
+            <div class="entry">       
+                <label for="mail" class="labelname">EMAIL: </label>
+                <input type="email" class="inputele" name="mail" id="mail" value="<?php echo $mail;?>" onkeyup="checkemail()">
+                <label for="" class="err" id="err_mail"></label>
+            </div>
+
+
+            <div class="entry">        
+                <label for="phone" class="labelname">PHONE NUMBER: </label>
+                <input type="text" class="inputele" id="phone" name="phone" value="<?php echo $phone;?>" onkeyup="checkphone()">
+                <label for="" class="err" id="err_phone"></label>
+            </div>
+
+
+            <div class="entry">
+                <label for="about" class="labelname">ABOUT ME: </label>
+                <input type="text" class="inputele" id="about" name="about" value="<?php echo $about;?>" onkeyup="checkabout()">
+                <label for="" class="err" id="err_about"></label>     
+            </div>
+            
+            
+            <button id="updatebtn" type="submit" onclick="btn()">UPDATE DETAILS</button>
+            <!-- <button id="signupuser" type="submit">CREATE AN ACCOUNT</button> -->
+
+            <label for="" id="submitSuccess"></label>
+        
+        
+        </form>
+
+    </div>
     
 </body>
+
+<script src="profilejs.js"></script>
 
 
 

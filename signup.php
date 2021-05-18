@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST['username'];
     $pass=$_POST['password'];
 
-    $sql="INSERT INTO users(Username,Password) VALUES(\"".$username."\",\"".$pass."\")";
+    $sql="INSERT INTO users(Username,Password, profile) VALUES(\"".$username."\",\"".$pass."\", \"no\")";
 
     $result=$conn->query($sql);
 
