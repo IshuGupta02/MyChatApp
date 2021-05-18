@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5rem;
+
+
+}
+.otheroptions{
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    top: 0.5rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+
+
+}
+
+.redirect{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.goto{
+    height: 100%;
+    width: 20rem;
+}
+
+.chat{
+
+    display: flex;
+    flex-direction: column;
+    
+
+
+}
+
+.output{
+
+}
+
+.allusers{
+
+}
+
+.users{
+
+}
+
+
+
+
+
+
+
