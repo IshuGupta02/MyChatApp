@@ -5,48 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="stylelogin.css">
     
 </head>
-<body>
+<body >
+    <div id="login_error" class="login_err"></div>
 
-    <div class="login">
-        <h2> LOGIN </h2>
-        <form class="innerform innerform1" action="loginphp.php" method="post">
-            <label for="user_login">USERNAME</label>
-            <input type="text" name="user" id="user_login">
+    <div class="forms">
+        <div class="login">
+            <h2> LOGIN </h2>
+            <form class="innerform innerform1" id="loginform" action="loginphp.php" method="post" onsubmit="event.preventDefault();checklogin();">
+                <label for="user_login" class="labelName">USERNAME:</label>
+                <input type="text" name="user" id="user_login">
+                
 
-            <label for="pass_login">PASSWORD</label>
-            <input type="password" name="pass" id="pass_login">
+                <label for="pass_login" class="labelName">PASSWORD:</label>
+                <input type="password" name="pass" id="pass_login">
 
-            <input type="checkbox" name="checkbox_rem" id="remember" value="1">
-            <label for="remember">Remember Me</label>
+                <div>
+                    <input type="checkbox" name="checkbox_rem" id="remember" value="1">
+                    <label for="remember" class="labelName">Remember Me</label>
+                </div>
 
-            <!-- <button onclick="login()" id="loginUser">LOGIN</button> -->
-            <button id="loginUser">LOGIN</button>
+                
 
-        </form>
-        <!-- <button id="loginUser">LOGIN</button> -->        
+                <!-- <button onclick="login()" id="loginUser">LOGIN</button> -->
+                <button id="loginUser">LOGIN</button>
+
+            </form>
+            <!-- <button id="loginUser">LOGIN</button> -->        
+
+        </div>
+
+        <div class="signup">
+            <h2>CREATE AN ACCOUNT</h2>
+            <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();check();">
+
+                <label for="user_signup" class="labelName">USERNAME:</label>
+                <input type="text" name="username" id="user_signup">
+                <!-- <label for="" id="err_usersignup" class="err"></label> -->
+
+                <label for="pass_signup" class="labelName">PASSWORD:</label>
+                <input type="password" name="password" id="pass_signup">
+                <!-- <label for="" id="err_passsignup" class="err"></label> -->
+
+                <label for="pass_login2" class="labelName">CONFIRM PASSWORD:</label>
+                <input type="password" name="confirm_pass" id="pass_signup2">
+                <!-- <label for="" id="err_confirm" class="err"></label> -->
+
+                <button id="signupuser" type="submit">CREATE AN ACCOUNT</button>
+
+            </form>
+
+        </div>
 
     </div>
 
-    <div class="signup">
-        <h2>CREATE AN ACCOUNT</h2>
-        <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();check();">
-
-            <label for="user_signup">USERNAME</label>
-            <input type="text" name="username" id="user_signup">
-
-            <label for="pass_signup">PASSWORD</label>
-            <input type="password" name="password" id="pass_signup">
-
-            <label for="pass_login2">CONFIRM PASSWORD</label>
-            <input type="password" name="confirm_pass" id="pass_signup2">
-
-            <button id="signupuser" type="submit">CREATE AN ACCOUNT</button>
-
-        </form>
-
-    </div>
+    
 
 
     <?php
@@ -86,7 +101,7 @@
     
 </body>
 
-<script src="check_reg.js">
+<script src="scriptlogin.js">
 </script>
 
 </html>

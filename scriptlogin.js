@@ -56,7 +56,7 @@ function checklogin(){
         if(this.responseText=="true"){
 
             document.getElementById("login_error").innerText="LOGGING IN...";
-                   
+            
             console.log("entered");
             document.getElementById("loginform").setAttribute("onsubmit", "");
             document.getElementById("loginUser").click();

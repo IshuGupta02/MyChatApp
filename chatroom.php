@@ -8,7 +8,7 @@
     
 
 </head>
-<body>
+<body onload="checkprofile()">
 
     <form action="logout.php" method="post">
         <button id="logout">LOGOUT</button>
@@ -21,8 +21,13 @@
     </form>
 
     <!-- <button id="profile">GO TO PROFILE PAGE!</button> -->
+
+    <?php
+    
+    
+    ?>
     
 </body>
-<!-- <script scr="removecookie.js"></script> -->
+<script scr="chatroomscript.js"></script>
 
 </html>
