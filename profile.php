@@ -33,6 +33,8 @@
 
         $result=$conn->query($sql);
 
+        // $output_dir = "images/";
+
 
 
 
@@ -46,12 +48,16 @@
             $mail=$row["Email"];
             $phone=$row["Phone"];
             $about=$row["About"];
+            $image=$row["images"];
+
+            // $image="images/Screenshot from 2021-04-22 09-46-01.png";
+
 
             // echo $name.$user.$gender.$mail.$phone.$about;
 
             }
         } else {
-            echo "0 results";
+            echo "PLEASE LOGIN";
         }
 
 
@@ -74,11 +80,17 @@
     <div class="profile">
         <h2>YOUR PROFILE:</h2>
     
-        <form action="updatedetails.php" method="post"  class="updateform" id="updateform" onsubmit="event.preventDefault(); check();">
-        
+        <form action="updatedetails.php" method="post"  class="updateform" id="updateform" onsubmit="event.preventDefault(); check();" enctype="multipart/form-data">
 
-        
+            <div class="entry"> 
+                <label for="profileimg" class="labelname">YOUR PROFILE IMAGE:</label>
+                <img src="<?php echo $image?>" alt="" id="profileimage">
+                <input type="file" name="fileToUpload" id="fileToUpload">
 
+            </div>
+        
+            
+        
             <div class="entry">
                 <label for="name" class="labelname">NAME: </label>
                 <input type="text" id="name" name="name" class="inputele" value="<?php echo $name;?>" onkeyup="checkname()">

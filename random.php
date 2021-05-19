@@ -1,74 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Image in MySql using PHP</title>
+</head>
+<body>
 <?php
 
 require_once 'connect.php';
 
-// $servername = "localhost";
-// $username = "myChat";
-// $password = "myChatPass1@";
-// // $password="ishu02@A";
-// $db="myChat";
+$msg = '';
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $image = $_FILES['image']['tmp_name'];
+    $img = file_get_contents($image);
+    // $con = mysqli_connect('localhost','root','','admin') or die('Unable To connect');
+    $sql = "insert into images (imagesrc) values(?)";
 
-// Create connection
-// $conn = new mysqli($servername, $username, $password, $db);
+    $stmt = mysqli_prepare($conn,$sql);
 
-// Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-// echo "Connected successfully\n";
+    mysqli_stmt_bind_param($stmt, "s",$img);
+    mysqli_stmt_execute($stmt);
 
+    $check = mysqli_stmt_affected_rows($stmt);
+    if($check==1){
+        $msg = 'Image Successfullly UPloaded';
+    }else{
+        $msg = 'Error uploading image';
+    }
+}
 
-// $sql="SELECT Name FROM users";
+$sql1="select * from images";
 
-// echo $sql."\n";
-// $result = $conn->query($sql);
+$result=$conn->query($sql1);
 
-// // echo $result;
+if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+	//   echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+	$img=base64_encode($row["imagesrc"]);
 
-// if ($result->num_rows > 0) {
-//     // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//       echo "Name: " . $row["Name"]."\n";
-//     }
-// } else {
-//     echo "0 results\n";
-// }
+	// echo $name.$user.$gender.$mail.$phone.$about;
 
-// $name="hello";
-
-// $sql="INSERT INTO users(Name) values("."\"".$name."\"".")";
-// print_r($sql);
-// $result = $conn->query($sql);
-// print_r($result);
+	}
+} else {
+	echo "0 results";
+}
 
 
-// $sql="SELECT * from users where Name=\""."Ishu"."\"";
-// echo $sql;
-// $result=$conn->query($sql);
 
-// if ($result->num_rows > 0) {
-//     echo "<script>location.href='profile.php'</script>";
-// } else {
-//     echo "<script>location.href='login.php'</script>";
-// }
-
-  
-
+// $img=base64_encode($row['PICTURE']);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" />
+    <button>Upload</button>
+</form>
+<?php
+    echo $msg;
+?>
 
-    <form action="random.php">
-        <input type="checkbox" value="1" name="answer">
-        <button method="post">submit</button>
-    </form>
-    
+	<img alt="105x105" class="img-responsive" src="data:image/jpg;charset=utf8;base64,<?php echo $img ?>">
 </body>
 </html>

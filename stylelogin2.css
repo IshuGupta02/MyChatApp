@@ -13,7 +13,7 @@ body{
     align-items: center;
     justify-content: stretch;
     /* background-image: url("/var/www/myHost/myChat/backgroundHome.jpeg"); */
-    /* background-size: cover; */
+    background-size: cover;
 
     /* background-color: #cccccc; */
     background-image: url("background1.jpeg");
@@ -37,6 +37,7 @@ body{
 }
 
 .login, .signup{
+    padding: 10px;
     
     width: 100%;
     height: fit-content;
@@ -45,7 +46,9 @@ body{
     justify-content: center;
     align-items: stretch;
     border: 2px solid black;
+    border-radius: 4%;
     box-sizing: border-box;
+    background-color:rgb(223,252,244);
 
 }
 .login{

@@ -8,7 +8,13 @@ body{
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
-    background-color: cyan;
+    /* background-color: cyan; */
+    /* background-image: url("background7.jpeg"); */
+    /* background-size: cover; */
+    background-size: cover;
+
+    /* background-color: #cccccc; */
+    background-image: url("background1.jpeg");
 
 
 }
@@ -40,6 +46,10 @@ body{
 .goto{
     height: 2rem;
     width: 20rem;
+    font-size: medium;
+    font-weight: 200;
+    background-color: white;
+    border-radius: 20%;
 }
 
 .chat{
@@ -58,6 +68,9 @@ body{
 
 .output{
     font-size: 2rem;
+    font-family:monospace;
+    font-weight: 400;
+    margin: 10px;
    
 
 
@@ -72,6 +85,8 @@ body{
     align-items: flex-start;
     padding:2rem;
 
+   
+
 }
 
 .users{
@@ -80,8 +95,11 @@ body{
     overflow: hidden;
     height: 2rem;
     width: 20rem;
-    border: 2px solid black;
+    border: 2px dotted black;
+    border-radius: 10%;
     font-size: 1.5rem;
+    background-color: rgb(254,251,223);
+    margin: 1px;
 
 }
 
