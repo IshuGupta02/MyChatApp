@@ -85,12 +85,15 @@
             if($rem=="1"){
                 echo "<script> document.getElementById(\"user_login\").value=\"".$username."\";</script>";
             
-
                 echo "<script> document.getElementById(\"pass_login\").value=\"".$pass."\";</script>";
+
+                echo "<script> document.getElementById(\"remember\").checked=\"true\";</script>";
+
+                
 
             }
 
-            // echo "<script>document.getElementById(\"loginUser\").click();</script>";
+            echo "<script>document.getElementById(\"loginUser\").click();</script>";
 
             
         }
