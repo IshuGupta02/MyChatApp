@@ -39,7 +39,7 @@
 
         <div class="signup">
             <h2>CREATE AN ACCOUNT</h2>
-            <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();check();">
+            <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();checkuser2();">
 
                 <label for="user_signup" class="labelName">USERNAME:</label>
                 <input type="text" name="username" id="user_signup" onkeyup="checkuser1()">
@@ -104,7 +104,7 @@
     
 </body>
 
-<script src="scriptlogin.js">
+<script src="check_reg.js">
 </script>
 
 </html>

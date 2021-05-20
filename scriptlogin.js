@@ -7,7 +7,7 @@ function check(){
   // console.log(checkuser1());
   
 
-  if(checkuser() && checkpass() && confirmpass()==true){
+  if(checkpass() && confirmpass()==true){
     console.log("checked signup");
     console.log("correct");
     document.getElementById("login_error").innerText="CREATING YOUR ACCOUNT";
@@ -139,6 +139,52 @@ function confirmpass(){
   }
 
 
+
+}
+
+function checkuser2(){
+
+
+  var str1=document.getElementById("user_signup").value;
+
+  if(str1.length==0){
+    document.getElementById("login_error").innerText="USERNAME CANNOT BE EMPTY";
+    return false;
+
+  }
+    console.log(str1);
+    str={
+        user:str1
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+
+      if (this.readyState == 4 && this.status == 200) {
+        if(this.responseText=="true"){
+
+            document.getElementById("login_error").innerText="CONGRATULATIONS! VALID USERNAME";
+            
+            console.log("entered");
+            check();
+            
+            return true;
+
+        }
+        else{
+
+            document.getElementById("login_error").innerText="USERNAME ALREADY EXISTS!";
+
+            console.log("not entered");
+            return false;
+                
+        }
+      }
+ 
+    };
+    xmlhttp.open("POST", "checkduplicate.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(JSON.stringify(str));
+       
 
 }
 
