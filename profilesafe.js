@@ -24,28 +24,41 @@ function btn(){
     console.log("clicked");
 }
 
-function check(){
-    if((checkname()&&checkusername()&&checkgender()&&checkemail()&&checkphone()&&checkabout())==true){
+const check=async()=>{
 
-        console.log(document.getElementById("updateform").getAttribute("onsubmit"));
+// function check(){
+    console.log("checking");
+    console.log("checkname ",checkname());
+    const result= await checkusername();
+    console.log("checkusername: ",result);
+    console.log("checkusername ",checkusername());
+    console.log("checkgender ",checkgender());
+    console.log("checkemail ",checkemail());
+    console.log("checkphone ",checkphone());
+    console.log("checkabout ",checkabout());
+    
+ 
+    // if((checkname()&&checkusername()&&checkgender()&&checkemail()&&checkphone()&&checkabout())==true){
 
-        document.getElementById("updateform").setAttribute("onsubmit", "");
+    //     console.log(document.getElementById("updateform").getAttribute("onsubmit"));
 
-        console.log(document.getElementById("updateform").getAttribute("onsubmit"));
+    //     document.getElementById("updateform").setAttribute("onsubmit", "");
 
-        let form=document.getElementById("updateform");
+    //     console.log(document.getElementById("updateform").getAttribute("onsubmit"));
 
-        form.submit();
+    //     let form=document.getElementById("updateform");
 
-        document.getElementById("updatebtn").click();
+    //     form.submit();
+
+    //     document.getElementById("updatebtn").click();
 
 
-    }
-    else{
-        createprompt("PROFILE COULD NOT BE UPDATED","submitSuccess");
-        console.log("unsuccessfull");
+    // }
+    // else{
+    //     createprompt("PROFILE COULD NOT BE UPDATED","submitSuccess");
+    //     console.log("unsuccessfull");
 
-    }
+    // }
 
 }
 
@@ -69,11 +82,16 @@ function checkname(){
 
 
 }
-function checkusername(){
 
+const checkusername= async () =>{
+
+
+// function checkusername(){
+    //console.log(document.getElementById("username"));
     var str2=document.getElementById("username").value;
     var str1=str2.trim();
     if(str1.length==0){
+        console.log("checkusername() returning false");
         
         createprompt("please enter a valid username","err_username");
         return false;
@@ -81,6 +99,7 @@ function checkusername(){
     }
 
     if(str1==getCookie("username")){
+        console.log("checkusername() returning true");
         createprompt("valid!","err_username");
         return true;
     }
@@ -96,6 +115,7 @@ function checkusername(){
         if(this.responseText=="true"){
             
             console.log("entered");
+            console.log("checkusername() returning true");
             createprompt("valid!","err_username");
             return true;
 
@@ -103,6 +123,7 @@ function checkusername(){
         else{
 
             console.log("not entered");
+            console.log("checkusername() returning false");
             createprompt("username already exists","err_username");
             return false;
                 

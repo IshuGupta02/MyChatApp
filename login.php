@@ -42,15 +42,15 @@
             <form class="innerform innerform2"  method="post" action="signup.php"  id="signupform" onsubmit="event.preventDefault();check();">
 
                 <label for="user_signup" class="labelName">USERNAME:</label>
-                <input type="text" name="username" id="user_signup">
+                <input type="text" name="username" id="user_signup" onkeyup="checkuser1()">
                 <!-- <label for="" id="err_usersignup" class="err"></label> -->
 
                 <label for="pass_signup" class="labelName">PASSWORD:</label>
-                <input type="password" name="password" id="pass_signup">
+                <input type="password" name="password" id="pass_signup" onkeyup="checkpass()">
                 <!-- <label for="" id="err_passsignup" class="err"></label> -->
 
                 <label for="pass_login2" class="labelName">CONFIRM PASSWORD:</label>
-                <input type="password" name="confirm_pass" id="pass_signup2">
+                <input type="password" name="confirm_pass" id="pass_signup2" onkeyup="confirmpass()">
                 <!-- <label for="" id="err_confirm" class="err"></label> -->
 
                 <button id="signupuser" type="submit">CREATE AN ACCOUNT</button>

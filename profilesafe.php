@@ -80,7 +80,7 @@
     <div class="profile">
         <h2>YOUR PROFILE:</h2>
     
-        <form action="updatedetails.php" method="post"  class="updateform" id="updateform" onsubmit="event.preventDefault(); checkusername1();" enctype="multipart/form-data">
+        <form action="updatedetails.php" method="post"  class="updateform" id="updateform" onsubmit="event.preventDefault(); check();" enctype="multipart/form-data">
 
             <div class="entry" id="imagediv"> 
                 <label for="profileimg" class="labelname">YOUR PROFILE IMAGE:</label>
