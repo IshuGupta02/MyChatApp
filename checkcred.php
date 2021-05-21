@@ -7,7 +7,7 @@ $data = json_decode(file_get_contents("php://input"));
 $username = $data->user;
 $password = $data->pass;
 
-$sql="SELECT * from users where Username=\"".$username."\" and Password=\"".$password."\"";
+$sql="SELECT * from ishu_users where Username=\"".$username."\" and Password=\"".$password."\"";
 
 $result=$conn->query($sql);
 

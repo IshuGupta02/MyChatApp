@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $pass=$_POST['pass'];
     $rem=$_POST['checkbox_rem'];
    
-    $sql="SELECT * from users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
+    $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
     // echo $sql;
     $result=$conn->query($sql);
 

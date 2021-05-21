@@ -29,7 +29,7 @@
         $pass=$_COOKIE[$password_name];
         $rem=$_COOKIE[$remember_name];
 
-        $sql="SELECT * from users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
+        $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
 
         $result=$conn->query($sql);
 

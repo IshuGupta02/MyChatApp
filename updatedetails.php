@@ -80,7 +80,7 @@
         
 
 
-        $sql="update users SET Name=\"".$new_name."\", Username=\"".$new_username."\"".", Gender=\"".$new_gender."\", Email=\"".$new_mail."\", Phone=\"".$new_phone."\", About=\"".$new_about."\", profile=\"yes\", images=\"".$target_file1."\"  WHERE Username=\"".$username."\" and Password=\"".$pass."\"";
+        $sql="update ishu_users SET Name=\"".$new_name."\", Username=\"".$new_username."\"".", Gender=\"".$new_gender."\", Email=\"".$new_mail."\", Phone=\"".$new_phone."\", About=\"".$new_about."\", profile=\"yes\", images=\"".$target_file1."\"  WHERE Username=\"".$username."\" and Password=\"".$pass."\"";
     
 
         echo $sql;

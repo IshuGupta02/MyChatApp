@@ -6,7 +6,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $username = $data->user;
 
-$sql="SELECT * from users where Username=\"".$username."\"";
+$sql="SELECT * from ishu_users where Username=\"".$username."\"";
 
 $result=$conn->query($sql);
 

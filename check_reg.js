@@ -126,6 +126,7 @@ function confirmpass(){
   var str2=document.getElementById("pass_signup2").value;
   if(str1==str2){
     console.log("validated");
+    document.getElementById("login_error").innerText="CONFIRM PASSWORD MATCHED WITH PASSWORD";
 
     return true;
 

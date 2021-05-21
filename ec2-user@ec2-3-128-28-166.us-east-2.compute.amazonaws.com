@@ -104,7 +104,7 @@
     
 </body>
 
-<script src="scriptlogin.js">
+<script src="check_reg.js">
 </script>
 
 </html>
