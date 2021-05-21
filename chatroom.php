@@ -78,7 +78,7 @@
             echo "<div class='allusers'>";
 
 
-            $sql1="SELECT * from users";
+            $sql1="SELECT * from ishu_users";
             $result1=$conn->query($sql1);
 
             if ($result1->num_rows > 0) {

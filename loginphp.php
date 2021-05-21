@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         echo "<script>location.href='chatroom.php'</script>";
 
     } else {
-        echo "<script>location.href='login.php'</script>";
+        echo "<script>location.href='index.php'</script>";
 
     }
 
