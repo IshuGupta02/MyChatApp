@@ -10,7 +10,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $result=$conn->query($sql);
 
-    // echo $sql;
+    $sql1="CREATE TABLE ishu_chat_".$username."(  id int PRIMARY KEY AUTO_INCREMENT, text varchar(10000), isto int, chatwith varchar(100))";
+
+    $result1=$conn->query($sql1);
+
+
+    // echo $sql1;
 
     
     $cookie_name1 = "username";

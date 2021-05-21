@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="chatroom1.css">
+    <link rel="stylesheet" href="chatroomcss.css">
+    <script src="chatroomscript.js"></script>
     
 
 </head>
@@ -75,6 +76,15 @@
                 die;
             }
 
+            ?>
+
+        <div class="chatroom">
+          
+
+        <?php
+            
+
+
             echo "<div class='allusers'>";
 
 
@@ -87,7 +97,8 @@
                 while($row1 = $result1->fetch_assoc()) {
                     // echo "entered";
 
-                    echo "<div class='users'>";
+                    // echo "<div class='users'>";
+                    echo "<div class='users' id=\"".$row1["UserID"]."\" onclick=\"funct('".$row1["UserID"]."')\">";
                     echo $row1['Username'];
                     echo "</div>";
                 
@@ -100,8 +111,28 @@
 
             echo "</div>";
 
+            ?>
+
+      
+
+            <div class="chatbox">
+                <div class="msgs" id="msgs">
+                
+                </div>
+
+                <div class="chatboxbottom">
+                    <input type="text" id="entermsg">
+                    <button id="send">SEND</button>
+                </div>
+
+            
+            
+            </div>
+
+        </div>
+
         
-        ?>
+        
 
 
     </div>
@@ -109,6 +140,6 @@
     
     
 </body>
-<script scr="chatroomscript.js"></script>
+
 
 </html>
