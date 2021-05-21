@@ -14,9 +14,18 @@ function getCookie(cname) {
     return "";
 }
 
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";" ;
+
+}
+
 
 
 function funct(id){
+    setCookie("id", id);
+    // var myVar = setInterval(funct(getCookie("id")), 10000);
+    console.log(getCookie("id"));
+    // setInterval(funct(id), 1000000);
     // tablename- ishu_chat_username
     document.getElementById("msgs").innerHTML="";
     // username_name="username";
@@ -31,41 +40,60 @@ function funct(id){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
 
-      if (this.readyState == 4 && this.status == 200) {
-         
-          var arrayrec=this.response;
+      if (this.readyState == 4 && this.status == 200){
+
+        document.getElementById("msgs").innerHTML="";
+    
+        //   var arrayrec=this.response;
           var objrec= JSON.parse(this.response);
           var arrayrec=objrec['res'];
 
-          for(let i=0;i<arrayrec.length;i++){
-              let obj=arrayrec[i];
-              if(obj["sent"]==1){
+          console.log(arrayrec);
+        //   var node=new node[arrayrec.length];
 
-                var node = document.createElement("div");
-                var textnode = document.createTextNode(obj["msg"]);
+        // var node=[];
+        // for(let j=0;j<arrayrec.length;j++){
+        //     node[j]=document.createElement("div");
+        // }
+
+        // var outernode=document.createElement("div");
+
+
+        for(let i=0;i<arrayrec.length;i++){
+            let obj1=arrayrec[i];
+            let obj=JSON.parse(obj1);
+
+            if(obj["sent"]==1){
+
+                let node = document.createElement("div");
+                // node.className="to";
+                let textnode = document.createTextNode(obj["msg"]);
+                console.log(obj["msg"]);
+                
                 node.appendChild(textnode); 
+                node.setAttribute("id", i);
+                
                 node.setAttribute("class","message to");
                 document.getElementById("msgs").appendChild(node);
-                                
+                // outernode.appendChild(node[i]);
+                            
 
-              }
-              else{
-                var node = document.createElement("div");
-                var textnode = document.createTextNode(obj["msg"]);
+            }
+            else{
+                let node = document.createElement("div");
+                let textnode = document.createTextNode(obj["msg"]);
+                console.log(obj["msg"]);
+                
                 node.appendChild(textnode); 
+                node.setAttribute("id", i);
                 node.setAttribute("class","message from");
                 document.getElementById("msgs").appendChild(node);
+                // outernode.appendChild(node[i]);
 
-              }
-          }
+            }
+        }
 
-        // console.log(this.response);
-
-        // var node = document.createElement("LI");                 // Create a <li> node
-        // var textnode = document.createTextNode("Water");         // Create a text node
-        // node.appendChild(textnode);                              // Append the text to <li>
-        // document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList"
-
+        // document.getElementById("msgs").appendChild(outernode);
                
         
       }
@@ -80,6 +108,49 @@ function funct(id){
 }
 
 function addmsg(){
-    
+
+    var msg=document.getElementById("entermsg").value;
+
+
+    let node=document.createElement("div");
+    let textnode = document.createTextNode(msg);
+    node.appendChild(textnode); 
+    // node.setAttribute("id", i);
+    node.setAttribute("class","message to");
+    document.getElementById("msgs").appendChild(node);
+
+    document.getElementById("entermsg").value="";
+
+
+
+    var from=getCookie("username");
+    var to=getCookie("id");
+
+   
+
+    str={
+        "from":from,
+        "to":to,
+        "msg":msg
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        var res=this.response;
+
+         
+          
+               
+        
+    }
+ 
+    };
+
+    xmlhttp.open("POST", "addchat.php", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(JSON.stringify(str));
+
 
 }

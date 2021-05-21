@@ -7,7 +7,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="chatroomcss.css">
-    <script src="chatroomscript.js"></script>
+    
     
 
 </head>
@@ -122,24 +122,18 @@
 
                 <div class="chatboxbottom">
                     <input type="text" id="entermsg">
-                    <button id="send">SEND</button>
+                    <button id="send" onclick="addmsg()">SEND</button>
                 </div>
-
-            
-            
+       
             </div>
 
         </div>
 
-        
-        
-
-
     </div>
 
     
-    
 </body>
+<script src="chatroomscript.js"></script>
 
 
 </html>

@@ -176,7 +176,7 @@ body{
 .to{
     height: 3rem;
     width: 70%;
-    align-self: flex-start;
+    align-self: flex-end;
     border: 2px solid black;
     
 
@@ -187,7 +187,7 @@ body{
     width: 70%;
     border: 2px solid black;
 
-    align-self: flex-end;
+    align-self: flex-start;
 
 }
 
