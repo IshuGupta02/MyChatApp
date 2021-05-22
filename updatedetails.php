@@ -80,12 +80,20 @@
         
 
 
-        $sql="update ishu_users SET Name=\"".$new_name."\", Username=\"".$new_username."\"".", Gender=\"".$new_gender."\", Email=\"".$new_mail."\", Phone=\"".$new_phone."\", About=\"".$new_about."\", profile=\"yes\", images=\"".$target_file1."\"  WHERE Username=\"".$username."\" and Password=\"".$pass."\"";
+        // $sql="update ishu_users SET Name=\"".$new_name."\", Username=\"".$new_username."\"".", Gender=\"`".$new_gender."`\", Email=\"".$new_mail."\", Phone=\"".$new_phone."\", About=\"".$new_about."\", profile=\"yes\", images=\"".$target_file1."\"  WHERE Username=\"".$username."\" and Password=\"".$pass."\"";
+
+        $stmt = $conn->prepare("update ishu_users SET Name=?, Username=?, Gender=?, Email=?,  Phone=?, About=?, profile='yes', images=? WHERE Username=? and Password=?");
+
+        $stmt->bind_param("sssssssss", $new_name, $new_username, $new_gender, $new_mail, $new_phone, $new_about, $target_file1, $username, $pass);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+
     
 
-        echo $sql;
+        // echo $sql;
 
-        $result=$conn->query($sql);
+        // $result=$conn->query($sql);
 
         $cookie_name1 = "username";
         $cookie_value1 = $new_username;

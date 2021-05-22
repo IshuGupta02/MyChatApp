@@ -93,7 +93,7 @@
 
             }
 
-            echo "<script>document.getElementById(\"loginUser\").click();</script>";
+            // echo "<script>document.getElementById(\"loginUser\").click();</script>";
 
             
         }
@@ -104,7 +104,7 @@
     
 </body>
 
-<script src="scriptlogin.js">
+<script src="scriptlogin1.js">
 </script>
 
 </html>

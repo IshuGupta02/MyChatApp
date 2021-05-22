@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,6 @@
     <link rel="stylesheet" href="chatroomcss.css">
     
     
-
 </head>
 <body >
 
@@ -47,9 +47,18 @@
             $pass=$_COOKIE[$password_name];
             $rem=$_COOKIE[$remember_name];
 
-            $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
+
+
+            $stmt = $conn->prepare("SELECT * FROM ishu_users where Username=? AND Password=?");
+
+            $stmt->bind_param("ss", $username,$pass);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+
+            // $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
             
-            $result=$conn->query($sql);
+            // $result=$conn->query($sql);
 
             if ($result->num_rows > 0) {
                 // output data of each row

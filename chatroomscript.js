@@ -20,8 +20,23 @@ function setCookie(cname, cvalue) {
 }
 
 
+function set(id){
+
+    setInterval(funct(id), 1000);
+}
+
 
 function funct(id){
+
+    if(getCookie("id")!=null){
+        document.getElementById(getCookie("id")).style.border="none";
+
+    }
+    
+
+    document.getElementById(id).style.border="5px solid red";
+
+
     setCookie("id", id);
     // var myVar = setInterval(funct(getCookie("id")), 10000);
     console.log(getCookie("id"));

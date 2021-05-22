@@ -29,11 +29,18 @@
         $pass=$_COOKIE[$password_name];
         $rem=$_COOKIE[$remember_name];
 
-        $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
+        // $sql="SELECT * from ishu_users where Username=\"".$username."\""." AND ". "Password=\"".$pass."\"";
 
-        $result=$conn->query($sql);
+        // $result=$conn->query($sql);
 
-        // $output_dir = "images/";
+        // // $output_dir = "images/";
+
+
+        $stmt = $conn->prepare("SELECT * FROM ishu_users where Username=? AND Password=?");
+
+        $stmt->bind_param("ss", $username,$pass);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
 
 
@@ -44,11 +51,15 @@
             //   echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
             $name=$row["Name"];
             $user=$row["Username"];
+            // $user="<";
+            echo $user;
             $gender=$row["Gender"];
             $mail=$row["Email"];
             $phone=$row["Phone"];
             $about=$row["About"];
             $image=$row["images"];
+
+            // echo "<script>console.log($user)</script>";
 
             // $image="images/Screenshot from 2021-04-22 09-46-01.png";
 
@@ -100,7 +111,7 @@
             
             <div class="entry">
                 <label for="username" class="labelname">USERNAME: </label>
-                <input type="text" class="inputele" id="username" name="username" value="<?php echo $user;?>" onkeyup="checkusername()">
+                <input type="text" class="inputele" id="username" name="username" value="<?php echo htmlspecialchars($user);?>" onkeyup="checkusername()">
                 <label for="" class="err" id="err_username"></label>
             </div>
             
